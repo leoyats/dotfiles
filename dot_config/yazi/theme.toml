@@ -1,0 +1,26 @@
+# ~/.config/yazi/theme.toml
+# Tokyo Night theme for Yazi
+
+[manager]
+# Active file selection (Tokyo Night Blue)
+hovered         = { fg = "#16161e", bg = "#7aa2f7", bold = true }
+# Selection in the preview column (Purple)
+preview_hovered = { fg = "#16161e", bg = "#bb9af7" }
+
+[border]
+# Subtle borders matching the terminal aesthetic
+modifier = { fg = "#414868" }
+
+[status]
+# Status bar at the bottom
+main = { fg = "#c0caf5", bg = "#1a1b26" }
+
+[filetype]
+# Colors for different file categories
+rules = [
+    { mime = "image/*", fg = "#73daca" },      # Greenish for images
+    { mime = "video/*", fg = "#ff9e64" },      # Orange for videos
+    { mime = "audio/*", fg = "#e0af68" },      # Yellow for audio
+    { mime = "application/zip", fg = "#f7768e" }, # Red for archives
+    { mime = "application/x-tar", fg = "#f7768e" },
+]

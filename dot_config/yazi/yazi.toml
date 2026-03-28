@@ -1,0 +1,67 @@
+# ~/.config/yazi/yazi.toml
+# Full configuration for Yazi + WezTerm + Helpers
+
+[manager]
+# Layout ratios for [Parent, Current, Preview]
+# 5/8 of the screen is dedicated to the preview for maximum visibility
+ratio          = [ 1, 2, 5 ]
+sort_by        = "natural"
+sort_sensitive = false
+sort_reverse   = false
+sort_dir_first = true
+show_hidden    = true
+show_symlink   = true
+linemode       = "size" # Shows file size in the list
+
+[preview]
+# High limits to ensure images fill the entire preview pane on Mac Retina screens
+max_width  = 3000
+max_height = 2000
+
+# High-quality scaling (lanczos3 is the sharpest)
+image_filter  = "lanczos3"
+image_quality = 90
+
+# Code and text preview settings
+tab_size   = 2
+wrap       = "yes" # Wrap long lines in code preview
+
+[opener]
+# Integration with VS Code and macOS System
+edit = [
+    { run = 'code "$@"', block = true, desc = "VS Code" },
+]
+open = [
+    { run = 'open "$@"', desc = "System Open" },
+]
+play = [
+    { run = 'open "$@"', desc = "System Open" },
+]
+
+[open]
+# Mapping file extensions to specific openers
+rules = [
+    { name = "*.json", use = "edit" },
+    { name = "*.lua",  use = "edit" },
+    { name = "*.txt",  use = "edit" },
+    { name = "*.md",   use = "edit" },
+    { mime = "image/*", use = "open" },
+    { mime = "video/*", use = "play" },
+    { mime = "audio/*", use = "play" },
+    { mime = "application/pdf", use = "open" },
+]
+
+[plugin]
+# PREVIEWERS: Using the helpers we installed (ffmpeg, poppler, 7zip, etc.)
+preload = [
+    { mime = "image/*", run = "image" },
+    { mime = "video/*", run = "video" },      # Requires ffmpegthumbnailer
+    { mime = "application/pdf", run = "pdf" }, # Requires poppler
+    { mime = "application/zip", run = "archive" }, # Requires 7zip
+    { mime = "application/x-tar", run = "archive" },
+    { mime = "application/x-7z-compressed", run = "archive" },
+    { mime = "application/x-rar", run = "archive" },
+]
+
+[input]
+cursor_blink = true
