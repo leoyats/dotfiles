@@ -1,26 +1,27 @@
 # ~/.config/yazi/theme.toml
-# Tokyo Night theme for Yazi
+# Use ANSI color names to stay compatible with WezTerm's Light/Dark themes
 
 [manager]
-# Active file selection (Tokyo Night Blue)
-hovered         = { fg = "#16161e", bg = "#7aa2f7", bold = true }
-# Selection in the preview column (Purple)
-preview_hovered = { fg = "#16161e", bg = "#bb9af7" }
+# Active file selection
+# 'reset' uses the terminal's default, 'blue' maps to Tokyo Night's blue
+hovered         = { fg = "black", bg = "blue", bold = true }
+# Selection in the preview column
+preview_hovered = { fg = "black", bg = "magenta" }
 
 [border]
-# Subtle borders matching the terminal aesthetic
-modifier = { fg = "#414868" }
+# Uses the terminal's predefined bright black (usually a grey)
+modifier = { fg = "bright-black" }
 
 [status]
-# Status bar at the bottom
-main = { fg = "#c0caf5", bg = "#1a1b26" }
+# Status bar - 'reversed' is a great trick for adaptivity
+main = { fg = "white", bg = "black" }
 
 [filetype]
-# Colors for different file categories
+# Colors for different file categories using standard names
 rules = [
-    { mime = "image/*", fg = "#73daca" },      # Greenish for images
-    { mime = "video/*", fg = "#ff9e64" },      # Orange for videos
-    { mime = "audio/*", fg = "#e0af68" },      # Yellow for audio
-    { mime = "application/zip", fg = "#f7768e" }, # Red for archives
-    { mime = "application/x-tar", fg = "#f7768e" },
+    { mime = "image/*", fg = "cyan" },       # Maps to greenish/cyan in both themes
+    { mime = "video/*", fg = "yellow" },     # Maps to orange/yellow
+    { mime = "audio/*", fg = "magenta" },    # Maps to pink/purple
+    { mime = "application/zip", fg = "red" },# Maps to red
+    { mime = "application/x-tar", fg = "red" },
 ]
