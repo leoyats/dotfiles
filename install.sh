@@ -26,7 +26,11 @@ fi
 
 # 3. Install packages from Brewfile
 echo "📦 Installing packages from Brewfile..."
-brew bundle install --file="$(dirname "$0")/Brewfile"
+BREWFILE_URL="https://raw.githubusercontent.com/leoyats/dotfiles/main/Brewfile"
+BREWFILE_TEMP=$(mktemp)
+curl -fsSL "$BREWFILE_URL" -o "$BREWFILE_TEMP"
+brew bundle install --file="$BREWFILE_TEMP"
+rm -f "$BREWFILE_TEMP"
 
 # 4. Initialize and apply dotfiles
 echo "✨ Applying dotfiles with chezmoi..."
