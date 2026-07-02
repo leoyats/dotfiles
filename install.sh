@@ -24,7 +24,11 @@ if ! command -v chezmoi &> /dev/null; then
     brew install chezmoi
 fi
 
-# 3. Initialize and apply dotfiles
+# 3. Install packages from Brewfile
+echo "📦 Installing packages from Brewfile..."
+brew bundle install --file="$(dirname "$0")/Brewfile"
+
+# 4. Initialize and apply dotfiles
 echo "✨ Applying dotfiles with chezmoi..."
 if [ -d "$HOME/.local/share/chezmoi/.git" ]; then
     # If the directory already exists, just apply the changes
