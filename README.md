@@ -37,7 +37,7 @@ A fully automated "Zero-to-Hero" setup: from core system utilities and GUI apps 
 To bootstrap this entire environment on a fresh macOS machine, simply open your terminal and run:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/leoyats/dotfiles/main/install.sh)"
+curl -fsSL https://raw.githubusercontent.com/leoyats/dotfiles/a4b27ab/install.sh | bash"
 ```
 
 ---
